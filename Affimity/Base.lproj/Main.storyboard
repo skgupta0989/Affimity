@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfO-YU-g6W">
+                                <rect key="frame" x="178" y="178" width="244" height="244"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_affimity.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sli-Xh-ikG">
+                                        <rect key="frame" x="56" y="20" width="133" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="C1g-Ay-kl4"/>
+                                            <constraint firstAttribute="width" constant="133" id="Q3Y-E5-EMi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLx-Z4-Et1">
+                                        <rect key="frame" x="0.0" y="137" width="244" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="JaO-ot-qFg"/>
+                                            <constraint firstAttribute="width" constant="244" id="TtB-MS-DL1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twu-FK-EQn">
+                                        <rect key="frame" x="0.0" y="190" width="244" height="30"/>
+                                        <color key="backgroundColor" red="0.95174984060000001" green="0.32486961339999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="244" id="kvx-UJ-uSl"/>
+                                            <constraint firstAttribute="height" constant="30" id="u4u-bY-9dB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mqw-XN-Qed"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36029011059999999" green="1" blue="0.4926328251" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mfO-YU-g6W" secondAttribute="height" multiplier="1:1" id="Ewg-oU-uFH"/>
+                                    <constraint firstItem="Sli-Xh-ikG" firstAttribute="top" secondItem="mfO-YU-g6W" secondAttribute="top" constant="20" id="IIw-dd-pcM"/>
+                                    <constraint firstAttribute="centerX" secondItem="Sli-Xh-ikG" secondAttribute="centerX" constant="-0.5" id="Ljn-Nd-k29"/>
+                                    <constraint firstAttribute="width" constant="244" id="QeE-Rf-nJV"/>
+                                    <constraint firstItem="JLx-Z4-Et1" firstAttribute="centerX" secondItem="twu-FK-EQn" secondAttribute="centerX" id="WTy-YX-UzR"/>
+                                    <constraint firstItem="twu-FK-EQn" firstAttribute="top" secondItem="JLx-Z4-Et1" secondAttribute="bottom" constant="23" id="a1S-fc-owY"/>
+                                    <constraint firstAttribute="height" constant="244" id="jQT-ko-xse"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kbO-aw-ArD">
+                                <rect key="frame" x="178" y="265" width="244" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="244" id="jsX-Sb-HwK"/>
+                                    <constraint firstAttribute="height" constant="30" id="kaC-DP-2eK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PE-sf-flB">
+                                <rect key="frame" x="203" y="496" width="195" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Sign up for Affimity">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-4P-ukk">
+                                <rect key="frame" x="219" y="538" width="162" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Forgot your password?">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.36029011059999999" green="1" blue="0.4926328251" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JLx-Z4-Et1" firstAttribute="top" secondItem="kbO-aw-ArD" secondAttribute="bottom" constant="20" id="7mz-ze-JR7"/>
+                            <constraint firstAttribute="centerY" secondItem="mfO-YU-g6W" secondAttribute="centerY" id="JDb-ru-rUl"/>
+                            <constraint firstAttribute="centerX" secondItem="2PE-sf-flB" secondAttribute="centerX" constant="-0.5" id="WnH-yC-bBA"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="AIS-4P-ukk" secondAttribute="bottom" constant="32" id="Yow-8r-Je2"/>
+                            <constraint firstAttribute="centerX" secondItem="mfO-YU-g6W" secondAttribute="centerX" id="gQ7-NA-Dse"/>
+                            <constraint firstAttribute="centerX" secondItem="AIS-4P-ukk" secondAttribute="centerX" id="i2B-os-Afh"/>
+                            <constraint firstItem="kbO-aw-ArD" firstAttribute="top" secondItem="Sli-Xh-ikG" secondAttribute="bottom" constant="19" id="keT-ox-SSI"/>
+                            <constraint firstItem="kbO-aw-ArD" firstAttribute="centerX" secondItem="JLx-Z4-Et1" secondAttribute="centerX" id="oCe-F5-gQs"/>
+                            <constraint firstItem="kbO-aw-ArD" firstAttribute="centerX" secondItem="Sli-Xh-ikG" secondAttribute="centerX" constant="-0.5" id="oiD-dn-uZS"/>
+                            <constraint firstItem="AIS-4P-ukk" firstAttribute="top" secondItem="2PE-sf-flB" secondAttribute="bottom" constant="12" id="tYD-g4-XD3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextValue" destination="JLx-Z4-Et1" id="sCl-5m-OLo"/>
+                        <outlet property="usernameTextValue" destination="kbO-aw-ArD" id="pxv-hE-5Ea"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_affimity.png" width="133" height="48"/>
+    </resources>
+</document>
