@@ -14,6 +14,7 @@
 @end
 
 @implementation LoginViewController
+@synthesize login_token;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -152,13 +153,29 @@
                      options:NSJSONReadingAllowFragments
                      error:&error];
     NSString *successCode = [jsonObject valueForKey:@"code"];
+    login_token = [jsonObject valueForKey:@"user_token"];
+    NSUserDefaults *loginData = [NSUserDefaults standardUserDefaults];
+    [loginData setValue:login_token forKey:@"auth_token"];
     NSLog(@"login response = %@",successCode);
     if (![successCode isEqualToString:@"200"]) {
         [self lockAnimationForView:self.passwordTextValue];
     }else{
         [self performSegueWithIdentifier:@"MainTabBar" sender:self];
     }
+}
+
++(LoginViewController *)sharedInstance{
+    // the instance of this class is stored here
+    static LoginViewController *myInstance = nil;
     
+    // check to see if an instance already exists
+    if (nil == myInstance) {
+        myInstance  = [[[self class] alloc] init];
+        // initialize variables here
+//        myInstance.login_token;
+    }
+    // return the instance of this class
+    return myInstance;
     
 }
 @end

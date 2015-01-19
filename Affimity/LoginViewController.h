@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
-
+@interface LoginViewController : UIViewController{
+    NSString *login_token;
+}
+@property (strong,nonatomic) NSString *login_token;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextValue;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextValue;
 - (IBAction)loginButtonClicked:(id)sender;
 -(void)lockAnimationForView:(UIView*)view;
++(LoginViewController *)sharedInstance;
 @end
 

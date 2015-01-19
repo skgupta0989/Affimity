@@ -11,4 +11,4 @@
 FOUNDATION_EXPORT NSString *const BaseURL;
 FOUNDATION_EXPORT NSString *const LoginURI;
 FOUNDATION_EXPORT NSString *const BuzzURI;
-FOUNDATION_EXPORT int const Network_Id;
+FOUNDATION_EXPORT NSString *const Network_Id;

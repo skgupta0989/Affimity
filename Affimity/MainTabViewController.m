@@ -8,9 +8,12 @@
 
 #import "MainTabViewController.h"
 #import "CustomTableViewCell.h"
+#import "LoginViewController.h"
+#import "Constants.h"
 
-@interface MainTabViewController ()<UITableViewDataSource,UITableViewDelegate>{
+@interface MainTabViewController ()<UITableViewDataSource,UITableViewDelegate,NSURLConnectionDelegate>{
     NSMutableArray *_dataArray;
+    NSMutableData *_responseData;
 }
 @property (weak, nonatomic) IBOutlet UITableView *buzzTableView;
 @property (strong, nonatomic) CustomTableViewCell *customcell;
@@ -24,9 +27,26 @@
     // Do any additional setup after loading the view.
     self.buzzTableView.dataSource = self;
     self.buzzTableView.delegate = self;
-    _dataArray = [@[@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        @"sandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar gupta - with love",
-        @"i am really tired of this now...pls somebody help me Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."] mutableCopy];
+//    _dataArray = [@[@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+//        @"sandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar gupta - with love",
+//        @"i am really tired of this now...pls somebody help me Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."] mutableCopy];
+    
+//    NSString *name = [[LoginViewController sharedInstance] token];
+    _dataArray = [[NSMutableArray alloc] init];
+    NSUserDefaults *loginData = [NSUserDefaults standardUserDefaults];
+    NSString *token = [loginData objectForKey:@"auth_token"];
+    NSLog(@"name = ===== %@",token);
+    //http://54.68.210.79:8080/Affimity/post/1/buzz?count=20&direction=1&post_type=0&reference_post_id=0&user_token=52c7427a-66b6-455c-8f41-5f5115b43f6a
+    
+    // Create the request.
+    NSString *buzzPageURL = [NSString stringWithFormat:@"%@%@%@buzz?count=20&direction=1&post_type=0&reference_post_id=0&user_token=%@",BaseURL,BuzzURI,Network_Id,token];
+    NSLog(@"url= %@",buzzPageURL);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:buzzPageURL]];
+    
+    // Create url connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [conn start];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +67,56 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark NSURLConnection Delegate Methods
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    _responseData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+//    NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    [_responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSError *error = nil;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingAllowFragments
+                                                      error:&error];
+    
+    NSArray * response = [jsonObject objectForKey:@"result"];
+    NSUInteger successCode = [response count];
+//    NSMutableArray *dataArray=[[NSMutableArray alloc] init];
+    for (int i=0; i<successCode; i++) {
+        [_dataArray addObject:[response[i] objectForKey:@"post"]];
+    }
+    
+    [self.buzzTableView reloadData];
+    
+//    NSUInteger successCode = [response count];
+//    NSLog(@"length == %lu",(unsigned long)successCode);
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+}
+
+#pragma tableview datasource methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_dataArray count];
