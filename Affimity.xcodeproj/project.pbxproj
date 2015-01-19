@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260BA4931A698EB50042482D /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260BA4921A698EB50042482D /* MainTabViewController.m */; };
+		260BA4961A699FD40042482D /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 260BA4951A699FD40042482D /* CustomTableViewCell.m */; };
 		2C7638A81A66549700B04351 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7638A71A66549700B04351 /* main.m */; };
 		2C7638AB1A66549700B04351 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7638AA1A66549700B04351 /* AppDelegate.m */; };
 		2C7638AE1A66549700B04351 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7638AD1A66549700B04351 /* LoginViewController.m */; };
@@ -29,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		260BA4911A698EB50042482D /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
+		260BA4921A698EB50042482D /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
+		260BA4941A699FD40042482D /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		260BA4951A699FD40042482D /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		2C7638A21A66549700B04351 /* Affimity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Affimity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7638A61A66549700B04351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C7638A71A66549700B04351 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +99,10 @@
 				2C7638AA1A66549700B04351 /* AppDelegate.m */,
 				2C7638AC1A66549700B04351 /* LoginViewController.h */,
 				2C7638AD1A66549700B04351 /* LoginViewController.m */,
+				260BA4911A698EB50042482D /* MainTabViewController.h */,
+				260BA4921A698EB50042482D /* MainTabViewController.m */,
+				260BA4941A699FD40042482D /* CustomTableViewCell.h */,
+				260BA4951A699FD40042482D /* CustomTableViewCell.m */,
 				2C7638AF1A66549700B04351 /* Main.storyboard */,
 				2C7638B21A66549700B04351 /* Images.xcassets */,
 				2C7638B41A66549700B04351 /* LaunchScreen.xib */,
@@ -248,6 +258,8 @@
 				2C7638AB1A66549700B04351 /* AppDelegate.m in Sources */,
 				2C7638A81A66549700B04351 /* main.m in Sources */,
 				2C7638D01A667F0500B04351 /* Constants.m in Sources */,
+				260BA4961A699FD40042482D /* CustomTableViewCell.m in Sources */,
+				260BA4931A698EB50042482D /* MainTabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +454,7 @@
 				2C7638C71A66549700B04351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C7638C81A66549700B04351 /* Build configuration list for PBXNativeTarget "AffimityTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +463,7 @@
 				2C7638CA1A66549700B04351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
