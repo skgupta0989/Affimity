@@ -25,7 +25,7 @@
     self.buzzTableView.dataSource = self;
     self.buzzTableView.delegate = self;
     _dataArray = [@[@"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        @"sandeep kumar gupta",
+        @"sandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar guptasandeep kumar gupta - with love",
         @"i am really tired of this now...pls somebody help me Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."] mutableCopy];
 }
 
@@ -61,21 +61,39 @@
     return cell;
     
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (!self.customcell) {
         self.customcell = [self.buzzTableView dequeueReusableCellWithIdentifier:@"CustomCell" ];
     }
     self.customcell.postTextLabel.text = _dataArray[indexPath.row];
-//    [self configureCell:self.customcell forIndexPath:indexPath isForOffscreenUse:YES];]
-    [self.customcell.contentView setNeedsLayout];
-    [self.customcell.contentView layoutIfNeeded];
+    self.customcell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.buzzTableView.frame), CGRectGetHeight(self.customcell.bounds));
+    [self.customcell setNeedsLayout];
+    [self.customcell layoutIfNeeded];
     
     CGFloat height = [self.customcell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 //    CGFloat height = 240;
     NSLog(@"height= %f",height);
-    return height+1;
+    return height+0.5;
 }
+
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 240;

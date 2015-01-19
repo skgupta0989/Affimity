@@ -99,7 +99,7 @@
 }
 
 -(void)doLogin:(NSString*) username password:(NSString*) password
-{[self performSegueWithIdentifier:@"MainTabBar" sender:self];
+{
     NSString *loginURL = [NSString stringWithFormat:@"%@%@",BaseURL,LoginURI];
     NSDictionary *loginData = [NSDictionary dictionaryWithObjectsAndKeys:username,@"email",password,@"password" ,nil];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:loginData options:kNilOptions error:nil];

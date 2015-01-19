@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F26982B3-D82B-4AF0-8204-4523BB25E662</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Affimity</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B2C5328DECA6FD8E9B4C628DBAD8CA99214BC1C0</key>
+		<string>github.com:skgupta0989/Affimity.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Affimity.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B2C5328DECA6FD8E9B4C628DBAD8CA99214BC1C0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:skgupta0989/Affimity.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B2C5328DECA6FD8E9B4C628DBAD8CA99214BC1C0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B2C5328DECA6FD8E9B4C628DBAD8CA99214BC1C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Affimity</string>
+		</dict>
+	</array>
+</dict>
+</plist>

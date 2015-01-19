@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Textlabel.h"
 
 @interface CustomTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *postTextLabel;
+@property (weak, nonatomic) IBOutlet Textlabel *postTextLabel;
 
 @end
